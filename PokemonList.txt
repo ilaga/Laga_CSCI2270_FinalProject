@@ -1,0 +1,151 @@
+ID,Name,species_id,Height (cm),Weight (hectogram),something,Type1,Type2,Ability,Baseevo,Midevo,Topevo
+1,bulbasaur,1,7,69,64,grass,poison,overgrow,bulbasaur,ivysaur,venusaur
+2,ivysaur,2,10,130,142,grass,poison,overgrow,bulbasaur,ivysaur,venusaur
+3,venusaur,3,20,1000,236,grass,poison,overgrow,bulbasaur,ivysaur,venusaur
+4,charmander,4,6,85,62,fire,none,blaze,charmander,charmeleon,charizard
+5,charmeleon,5,11,190,142,fire,none,blaze,charmander,charmeleon,charizard
+6,charizard,6,17,905,240,fire,flying,blaze,charmander,charmeleon,charizard
+7,squirtle,7,5,90,63,water,none,torrent,squirtle,wartortle,blastoise
+8,wartortle,8,10,225,142,water,none,torrent,squirtle,wartortle,blastoise
+9,blastoise,9,16,855,239,water,none,torrent,squirtle,wartortle,blastoise
+10,caterpie,10,3,29,39,bug,none,shield dust,caterpie,metapod,butterfree
+11,metapod,11,7,99,72,bug,none,shed skin,caterpie,metapod,butterfree
+12,butterfree,12,11,320,178,bug,flying,compound eyes,caterpie,metapod,butterfree
+13,weedle,13,3,32,39,bug,poison,shield dust,weedle,kakuna,beedrill
+14,kakuna,14,6,100,72,bug,poison,shed skin,weedle,kakuna,beedrill
+15,beedrill,15,10,295,178,bug,poison,swarm,weedle,kakuna,beedrill
+16,pidgey,16,3,18,50,normal,flying,keen eye,pidgey,pidgeotto,pidgeot
+17,pidgeotto,17,11,300,122,normal,flying,keen eye,pidgey,pidgeotto,pidgeot
+18,pidgeot,18,15,395,216,normal,flying,keen eye,pidgey,pidgeotto,pidgeot
+19,rattata,19,3,35,51,normal,none,run away,rattata,raticate,none
+20,raticate,20,7,185,145,normal,none,run away,rattata,raticate,none
+21,spearow,21,3,20,52,normal,flying,keen eye,spearow,fearow,none
+22,fearow,22,12,380,155,normal,flying,keen eye,spearow,fearow,none
+23,ekans,23,20,69,58,poison,none,shed skin,ekans,arbok,none
+24,arbok,24,35,650,153,poison,none,shed skin,ekans,arbok,none
+25,pikachu,25,4,60,112,electric,none,static,pikachu,raichu,none
+26,raichu,26,8,300,218,electric,none,static,pikachu,raichu,none
+27,sandshrew,27,6,120,60,ground,none,sand veil,sandshrew,sandslash,none
+28,sandslash,28,10,295,158,ground,none,sand veil,sandshrew,sandslash,none
+29,nidoran-f,29,4,70,55,poison,none,poison point,nidoran-f,nidorina,nidoqueen
+30,nidorina,30,8,200,128,poison,none,poison point,nidoran-f,nidorina,nidoqueen
+31,nidoqueen,31,13,600,227,poison,ground,poison point,nidoran-f,nidorina,nidoqueen
+32,nidoran-m,32,5,90,55,poison,none,poison point,nidoran-m,nidorino,nidoking
+33,nidorino,33,9,195,128,poison,none,poison point,nidoran-m,nidorino,nidoking
+34,nidoking,34,14,620,227,poison,ground,poison point,nidoran-m,nidorino,nidoking
+35,clefairy,35,6,75,113,fairy,none,cute charm,clefairy,clefable,none
+36,clefable,36,13,400,217,fairy,none,cute charm,clefairy,clefable,none
+37,vulpix,37,6,99,60,fire,none,flash fire,vulpix,ninetales,none
+38,ninetales,38,11,199,177,fire,none,flash fire,vulpix,ninetales,none
+39,jigglypuff,39,5,55,95,normal,fairy,cute charm,jigglypuff,wigglytuff,none
+40,wigglytuff,40,10,120,196,normal,fairy,cute charm,jigglypuff,wigglytuff,none
+41,zubat,41,8,75,49,poison,flying,inner focus,zubat,golbat,none
+42,golbat,42,16,550,159,poison,flying,inner focus,zubat,golbat,none
+43,oddish,43,5,54,64,grass,poison,chlorophyll,oddish,gloom,vileplume
+44,gloom,44,8,86,138,grass,poison,chlorophyll,oddish,gloom,vileplume
+45,vileplume,45,12,186,221,grass,poison,chlorophyll,oddish,gloom,vileplume
+46,paras,46,3,54,57,bug,grass,effect spore,paras,parasect,none
+47,parasect,47,10,295,142,bug,grass,effect spore,paras,parasect,none
+48,venonat,48,10,300,61,bug,poison,compound eyes,venonat,venomoth,none
+49,venomoth,49,15,125,158,bug,poison,shield dust,venonat,venomoth,none
+50,diglett,50,2,8,53,ground,none,sand veil,diglett,dugtrio,none
+51,dugtrio,51,7,333,142,ground,none,sand veil,diglett,dugtrio,none
+52,meowth,52,4,42,58,normal,none,pickup,meowth,persian,none
+53,persian,53,10,320,154,normal,none,technician,meowth,persian,none
+54,psyduck,54,8,196,64,water,none,damp,psyduck,golduck,none
+55,golduck,55,17,766,175,water,none,damp,psyduck,golduck,none
+56,mankey,56,5,280,61,fighting,none,vital spirit,mankey,primeape,none
+57,primeape,57,10,320,159,fighting,none,vital spirit,mankey,primeape,none
+58,growlithe,58,7,190,70,fire,none,intidimate,growlithe,arcanine,none
+59,arcanine,59,19,1550,194,fire,none,intidimate,growlithe,arcanine,none
+60,poliwag,60,6,124,60,water,none,damp,poliwag,poliwhirl,poliwrath
+61,poliwhirl,61,10,200,135,water,none,damp,poliwag,poliwhirl,poliwrath
+62,poliwrath,62,13,540,230,water,fighting,damp,poliwag,poliwhirl,poliwrath
+63,abra,63,9,195,62,psychic,none,inner focus,abra,kadabra,alakazam
+64,kadabra,64,13,565,140,psychic,none,inner focus,abra,kadabra,alakazam
+65,alakazam,65,15,480,225,psychic,none,inner focus,abra,kadabra,alakazam
+66,machop,66,8,195,61,fighting,none,guts,machop,machoke,machamp
+67,machoke,67,15,705,142,fighting,none,guts,machop,machoke,machamp
+68,machamp,68,16,1300,227,fighting,none,guts,machop,machoke,machamp
+69,bellsprout,69,7,40,60,grass,poison,chlorophyll,bellsprout,weepinbell,victreebel
+70,weepinbell,70,10,64,137,grass,poison,chlorophyll,bellsprout,weepinbell,victreebel
+71,victreebel,71,17,155,221,grass,poison,chlorophyll,bellsprout,weepinbell,victreebel
+72,tentacool,72,9,455,67,water,poison,clear body,tentacool,tentacruel,none
+73,tentacruel,73,16,550,180,water,poison,clear body,tentacool,tentacruel,none
+74,geodude,74,4,200,60,rock,ground,rock head,geodude,graveler,golem
+75,graveler,75,10,1050,137,rock,ground,rock head,geodude,graveler,golem
+76,golem,76,14,3000,223,rock,ground,rock head,geodude,graveler,golem
+77,ponyta,77,10,300,82,fire,none,run away,ponyta,rapidash,none
+78,rapidash,78,17,950,175,fire,none,run away,ponyta,rapidash,none
+79,slowpoke,79,12,360,63,water,psychic,oblivious,slowpoke,slowbro,none
+80,slowbro,80,16,785,172,water,psychic,oblivious,slowpoke,slowbro,none
+81,magnemite,81,3,60,65,electric,steel,sturdy,magnemite,magneton,none
+82,magneton,82,10,600,163,electric,steel,sturdy,magnemite,magneton,none
+83,farfetchd,83,8,150,123,normal,flying,keen eye,none,none,none
+84,doduo,84,14,392,62,normal,flying,run away,duduo,dodrio,none
+85,dodrio,85,18,852,161,normal,flying,run away,duduo,dodrio,none
+86,seel,86,11,900,65,water,none,thick fat,seel,dewgong,none
+87,dewgong,87,17,1200,166,water,ice,thick fat,seel,dewgong,none
+88,grimer,88,9,300,65,poison,none,stench,grimer,muk,none
+89,muk,89,12,300,175,poison,none,stench,grimer,muk,none
+90,shellder,90,3,40,61,water,none,shell armor,shellder,cloyster,none
+91,cloyster,91,15,1325,184,water,ice,shell armor,shellder,cloyster,none
+92,gastly,92,13,1,62,ghost,poison,levitate,gastly,haunter,gengar
+93,haunter,93,16,1,142,ghost,poison,levitate,gastly,haunter,gengar
+94,gengar,94,15,405,225,ghost,poison,levitate,gastly,haunter,gengar
+95,onix,95,88,2100,77,rock,ground,rock head,none,none,none
+96,drowzee,96,10,324,66,psychic,none,insomnia,drowzee,hypno,none
+97,hypno,97,16,756,169,psychic,none,insomnia,drowzee,hypno,none
+98,krabby,98,4,65,65,water,none,shell armor,krabby,kingler,none
+99,kingler,99,13,600,166,water,none,shell armor,krabby,kingler,none
+100,voltorb,100,5,104,66,electric,none,static,voltorb,electrode,none
+101,electrode,101,12,666,168,electric,none,static,voltorb,electrode,none
+102,exeggcute,102,4,25,65,grass,psychic,chlorophyll,exeggcute,exeggutor,none
+103,exeggutor,103,20,1200,182,grass,psychic,chlorophyll,exeggcute,exeggutor,none
+104,cubone,104,4,65,64,ground,none,rock head,cubone,marowak,none
+105,marowak,105,10,450,149,ground,none,rock head,cubone,marowak,none
+106,hitmonlee,106,15,498,159,fighting,none,limber,hitmonlee,hitmonchan,none
+107,hitmonchan,107,14,502,159,fighting,none,keen eye,hitmonlee,hitmonchan,none
+108,lickitung,108,12,655,77,normal,none,oblivious,none,none,none
+109,koffing,109,6,10,68,poison,none,levitate,koffing,weezing,none
+110,weezing,110,12,95,172,poison,none,levitate,koffing,weezing,none
+111,rhyhorn,111,10,1150,69,ground,rock,rock head,rhyhorn,rhydon,none
+112,rhydon,112,19,1200,170,ground,rock,rock head,rhyhorn,rhydon,none
+113,chansey,113,11,346,395,normal,none,natural cure,none,none,none
+114,tangela,114,10,350,87,grass,none,chlorophyll,none,none,none
+115,kangaskhan,115,22,800,172,normal,none,early bird,none,none,none
+116,horsea,116,4,80,59,water,none,swift swim,horsea,seadra,none
+117,seadra,117,12,250,154,water,none,poison point,horsea,seadra,none
+118,goldeen,118,6,150,64,water,none,swift swim,goldeen,seaking,none
+119,seaking,119,13,390,158,water,none,swift swim,goldeen,seaking,none
+120,staryu,120,8,345,68,water,none,natural cure,staryu,starmie,none
+121,starmie,121,11,800,182,water,psychic,natural cure,staryu,starmie,none
+122,mr-mime,122,13,545,161,psychic,fairy,soundproof,none,none,none
+123,scyther,123,15,560,100,bug,flying,swarm,none,none,none
+124,jynx,124,14,406,159,ice,psychic,oblivious,none,none,none
+125,electabuzz,125,11,300,172,electric,none,static,none,none,none
+126,magmar,126,13,445,173,fire,none,flame body,none,none,none
+127,pinsir,127,15,550,175,bug,none,hyper cutter,none,none,none
+128,tauros,128,14,884,172,normal,none,intimidate,none,none,none
+129,magikarp,129,9,100,40,water,none,swift swim,magikarp,gyarados,none
+130,gyarados,130,65,2350,189,water,flying,intimidate,magikarp,gyarados,none
+131,lapras,131,25,2200,187,water,ice,water absorb,none,none,none
+132,ditto,132,3,40,101,normal,none,limber,none,none,none
+133,eevee,133,3,65,65,normal,none,run away,eevee,multiple,none
+134,vaporeon,134,10,290,184,water,none,water absorb,eevee,vaporeon,none
+135,jolteon,135,8,245,184,electric,none,volt absorb,eevee,jolteon,none
+136,flareon,136,9,250,184,fire,none,flash fire,eevee,flareon,none
+137,porygon,137,8,365,79,normal,none,trace,none,none,none
+138,omanyte,138,4,75,71,rock,water,shell armor,omanyte,omastar,none
+139,omastar,139,10,350,173,rock,water,shell armor,omanyte,omastar,none
+140,kabuto,140,5,115,71,rock,water,swift swim,kabuto,kabutops,none
+141,kabutops,141,13,405,173,rock,water,swift swim,kabuto,kabutops,none
+142,aerodactyl,142,18,590,180,rock,flying,rock head,none,none,none
+143,snorlax,143,21,4600,189,normal,none,thick fat,none,none,none
+144,articuno,144,17,554,261,ice,flying,pressure,none,none,none
+145,zapdos,145,16,526,261,electric,flying,pressure,none,none,none
+146,moltres,146,20,600,261,fire,flying,pressure,none,none,none
+147,dratini,147,18,33,60,dragon,none,shed skin,dratini,dragonair,dragonite
+148,dragonair,148,40,165,147,dragon,none,shed skin,dratini,dragonair,dragonite
+149,dragonite,149,22,2100,270,dragon,flying,inner focus,dratini,dragonair,dragonite
+150,mewtwo,150,20,1220,306,psychic,none,pressure,none,none,none
