@@ -24,6 +24,25 @@ PokeTree::~PokeTree()
 
 }
 
+/*
+Function prototype:
+void PokeTree::addPokeNode(int,string,int,int,string,string,string,string,string,string);
+
+Function description:
+This method adds a new Pokemon node to the binary tree. The method then calls addFixUp in order to preserve
+the red black properties.
+
+Example:
+PokeTree pt;
+pt.addPokeNode(1,charizard,12,13,fire,flying,charmander,charmeleon,charizard);
+
+Precondition:
+Nodes with no children point to nil. The id is pokedex number. The name is the pokemon name.
+
+Post condition:
+New PokeNode is added to binary tree. Now points to null before addFixUp is called.
+*/
+
 void PokeTree::addPokeNode(int in_id, std::string in_name, int in_height, int in_weight, string in_type1, string in_type2
              ,string in_ability, string in_evobase, string in_evomid, string in_evotop)
 {
@@ -75,6 +94,23 @@ void PokeTree::addPokeNode(int in_id, std::string in_name, int in_height, int in
 
 }
 
+/*
+Function prototype:
+void PokeTree::rbAddFixup(PokeNode *z);
+
+Function description:
+This method fixes up the red-black properties of the binary tree. Called from inside addPokeNode;
+
+Example:
+rbAddFixup(node);
+
+Precondition:
+Called from inside addPokeNode. Must be passed PokeNode.
+
+Post condition:
+Red-Black properties of the Pokemon binary tree are restored.
+*/
+
 void PokeTree::rbAddFixup(PokeNode * z){
 
     PokeNode *y;
@@ -122,6 +158,23 @@ void PokeTree::rbAddFixup(PokeNode * z){
 
 }
 
+/*
+Function prototype:
+void PokeTree::leftRotate(PokeNode *x).
+
+Function description:
+This method is used inside the rbAddFixup to rotate left around a node.
+
+Example:
+leftRotate(node);
+
+Precondition:
+Called from inside rbAddFixup. Must be passed a PokeNode.
+
+Post condition:
+The PokeTree is rotated left around a node in order to preserve red-black tree properties.
+*/
+
 void PokeTree::leftRotate(PokeNode * x){
 
     PokeNode *y;
@@ -153,6 +206,23 @@ void PokeTree::leftRotate(PokeNode * x){
     x->parent = y;
 }
 
+/*
+Function prototype:
+void PokeTree::rightRotate(PokeNode *x).
+
+Function description:
+This method is used inside the rbAddFixup to rotate right around a node.
+
+Example:
+rightRotate(node);
+
+Precondition:
+Called from inside rbAddFixup. Must be passed a PokeNode.
+
+Post condition:
+The PokeTree is rotated right around a node in order to preserve red-black tree properties.
+*/
+
 void PokeTree::rightRotate(PokeNode * y){
 
     PokeNode *x;
@@ -183,6 +253,25 @@ void PokeTree::printPokeInventory(){
     printPokeInventory(root);
 }
 
+/*
+Function prototype:
+void PokeTree::printPokeInventory(PokeNode *node);
+
+Function description:
+This method is used to print all items in the Pokemon binary tree in alphabetical order.
+The recursive method works by traversing all the way down to the bottom left of the tree
+and printing in alphabetical order.
+
+Example:
+printPokeInventory(root);
+
+Precondition:
+Called from inside printPokeInventory(). Must be passed the root to print the entire inventory.
+
+Post condition:
+All items in the binary tree are printed.
+*/
+
 void PokeTree::printPokeInventory(PokeNode * node){
 
     if(node->leftChild!=nil){
@@ -193,6 +282,26 @@ void PokeTree::printPokeInventory(PokeNode * node){
         printPokeInventory(node->rightChild);
     }
 }
+
+/*
+Function prototype:
+void PokeTree::searchPokeTree(string);
+
+Function description:
+This method is used to print the information regarding a specific item in the tree.
+The method traverses through the tree until it finds the name passed in. If the name
+is not found, it prints that the item is not found.
+
+Example:
+PokeTree pt;
+pt.searchPokeTree("Charizard");
+
+Precondition:
+Must be passed the name of a Pokemon.
+
+Post condition:
+Prints all information regarding that Pokemon, or prints no pokemon found.
+*/
 
 void PokeTree::searchPokeTree(string name){
     PokeNode *x;
@@ -236,6 +345,25 @@ int PokeTree::countPokeNodes(){
 
 }
 
+/*
+Function prototype:
+void PokeTree::countPokeNodes(PokeNode *).
+
+Function description:
+This method is called from countPokeNodes(), and it traverses through the entire
+binary tree in the same fashion as the printInventory method. It returns the number
+of nodes in the tree.
+
+Example:
+countPokeNodes(root);
+
+Precondition:
+Called from countPokeNodes(). Must be passed a PokeNode.
+
+Post condition:
+Returns the number of nodes in the tree.
+*/
+
 int PokeTree::countPokeNodes(PokeNode *node){
 
     if(node->leftChild!=nil){
@@ -246,6 +374,26 @@ int PokeTree::countPokeNodes(PokeNode *node){
         countPokeNodes(node->rightChild);
     }
 }
+
+/*
+Function prototype:
+void PokeTree::searchPokeTree(string);
+
+Function description:
+This method is used to return the node regarding a specific item in the tree.
+The method traverses through the tree until it finds the name passed in. It the item
+is not in the tree, it returns a nil node.
+
+Example:
+searchPokeTree(root,"Charizard");
+
+Precondition:
+Must be passed the name of a Pokemon and a node, most likely the root.
+Called from inside the deletePokeNode method.
+
+Post condition:
+Returns a node that corresponds to the given name.
+*/
 
 PokeNode* PokeTree::searchPokeTree(PokeNode* node, string name){
 
@@ -261,6 +409,28 @@ PokeNode* PokeTree::searchPokeTree(PokeNode* node, string name){
 
     return x;
 }
+
+/*
+Function prototype:
+void PokeTree::deletePokeNode(string);
+
+Function description:
+This method deletes a node from the binary to corresponding to the name
+passed in. It starts by retrieving the node from searchPokeTree.
+This methods also called rbDeleteFixup to conserve the red-black properties
+of the tree. DeletePokeNode also uses treeMinimum to find the node to replace the
+deleted node.
+
+Example:
+PokeTree pt;
+pt.deletePokeNode("Charizard");
+
+Precondition:
+Must be passed the name of a Pokemon.
+
+Post condition:
+PokeNode is deleted from the binary tree and memory freed.
+*/
 
 void PokeTree::deletePokeNode(string name){
 
@@ -331,6 +501,24 @@ PokeNode* PokeTree::treeMinimum(PokeNode * x){
     }
     return x;
 }
+
+/*
+Function prototype:
+void PokeTree::rbDeleteFixup(PokeNode);
+
+Function description:
+This method is called from inside deletePokeNode to fix the red-black
+properties of the binary tree.
+
+Example:
+rbDeleteFixup(node);
+
+Precondition:
+Must be passed a node.
+
+Post condition:
+Fixes the red-black properties of the binary tree.
+*/
 
 void PokeTree::rbDeleteFixup(PokeNode * node){
 
@@ -414,6 +602,23 @@ void PokeTree::rbDeleteFixup(PokeNode * node){
     return;
 }
 
+/*
+Function prototype:
+void PokeTree::rbTransplant(PokeNode *, PokeNode *);
+
+Function description:
+This method is called from deletePokeNode. It switches two nodes in the tree.
+
+Example:
+rbTransplant(node1, node2);
+
+Precondition:
+Must be passed the name of a Pokemon.
+
+Post condition:
+Prints all information regarding that Pokemon, or prints no pokemon found.
+*/
+
 void PokeTree::rbTransplant(PokeNode * u, PokeNode * v){
 
     if(u->parent == nil){
@@ -428,12 +633,33 @@ void PokeTree::rbTransplant(PokeNode * u, PokeNode * v){
     //}
 }
 
+
 bool PokeTree::isValid(){
     bool x = rbValid(root);
     return x;
 }
 
-int PokeTree::rbValid(PokeNode * node) // Returns 0 if the tree is invalid, otherwise returns the black node height.
+/*
+Function prototype:
+void PokeTree::rbValid(PokeNode *);
+
+Function description:
+This method checks to see if the binary tree is a valid red-black tree.
+This method is used only for troubleshooting, and is not used during the actual
+final product for the user.
+
+Example:
+rbValid(root);
+
+Precondition:
+Must be passed a node, most likely the root.
+
+Post condition:
+Returns an int based on if the tree is a valid-red black tree. The method
+returns a 0 if there is a violation, and returns 1 if the tree is valid.
+*/
+
+int PokeTree::rbValid(PokeNode * node)
 {
 
     int lh = 0;
@@ -487,6 +713,33 @@ int PokeTree::rbValid(PokeNode * node) // Returns 0 if the tree is invalid, othe
 
     }
 }
+
+/*
+Function prototype:
+void PokeTree::findType(string);
+
+Function description:
+This description will be used to describe findType and findAbility, because
+they both use the same process, just search for different things. The methods
+take in a type, the root, and a vector created in the public version, and
+traverse through the tree in alphabetical order. Instead of printing every name
+like in printInventory, the methods add the node to the vector, and then back in
+the public method, they print every name. The public method then asks the user if
+they want to learn more about one of the pokemon, and takes an index number as input
+to easily print the information.
+
+Example:
+PokeTree pt;
+pt.findType("fire");
+OR
+pt.findAbility("blaze");
+
+Precondition:
+Must be passed the type of ability of a pokemon.
+
+Post condition:
+Prints all information regarding that type or ability, or prints no pokemon found.
+*/
 
 void PokeTree::findType(string type){
     string answer;
