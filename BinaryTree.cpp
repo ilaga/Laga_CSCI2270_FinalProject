@@ -7,7 +7,7 @@ using namespace std;
 
 PokeTree::PokeTree()
 {
-    nil = new PokeNode(0,"NIL",0,0,"NIL","NIL","NIL","NIL","NIL","NIL");
+    nil = new PokeNode(0,"NIL",0,0,"NIL","NIL","NIL","NIL","NIL","NIL"); //Create a nil node
     root = nil;
     nil->isRed = false;
     nil->leftChild = nil;
@@ -50,13 +50,13 @@ void PokeTree::addPokeNode(int in_id, std::string in_name, int in_height, int in
     PokeNode *x = root;
     PokeNode *z = new PokeNode(in_id, in_name,in_height,in_weight,in_type1,in_type2,in_ability,in_evobase,in_evomid,in_evotop);
 
-    if(root == nil){
+    if(root == nil){//If no items in the tree
         root = z;
         z->parent = nil;
     }else{
         while(x != nil){
             y = x;
-            if(z->name.compare(x->name) < 0){
+            if(z->name.compare(x->name) < 0){//If the new node is to the left
                 x = x->leftChild ;
             }else{
                 x = x->rightChild;
@@ -70,7 +70,7 @@ void PokeTree::addPokeNode(int in_id, std::string in_name, int in_height, int in
             y->rightChild = z;
     }
 
-    z->leftChild = nil;
+    z->leftChild = nil;//Set data of the new node
     z->rightChild = nil;
     z->isRed = true;
     z->id = in_id;
@@ -90,7 +90,7 @@ void PokeTree::addPokeNode(int in_id, std::string in_name, int in_height, int in
     //cout<<"parent: "<<z->parent->name<<endl;
 
 
-    rbAddFixup(z);
+    rbAddFixup(z);//Call the fixup method
 
 }
 
@@ -118,8 +118,9 @@ void PokeTree::rbAddFixup(PokeNode * z){
     y->leftChild = nil;
     y->rightChild = nil;
     y->parent = nil;
-    while(z->parent->isRed == true){
-        if(z->parent == z->parent->parent->leftChild){
+
+    while(z->parent->isRed == true){//While z parent is red
+        if(z->parent == z->parent->parent->leftChild){ //If z->parent is a left child
             y = z->parent->parent->rightChild;
             if(y->isRed == true){
                 z->parent->isRed = false;
@@ -272,7 +273,7 @@ Post condition:
 All items in the binary tree are printed.
 */
 
-void PokeTree::printPokeInventory(PokeNode * node){
+void PokeTree::printPokeInventory(PokeNode * node){//Recursively traverse alphabetically through tree
 
     if(node->leftChild!=nil){
         printPokeInventory(node->leftChild);
@@ -306,7 +307,7 @@ Prints all information regarding that Pokemon, or prints no pokemon found.
 void PokeTree::searchPokeTree(string name){
     PokeNode *x;
     x = root;
-    while(x != nil && x->name != name){
+    while(x != nil && x->name != name){//Traverse through tree until end or found
         if(x->name.compare(name) > 0){
             x = x->leftChild;
         }else{
@@ -440,7 +441,6 @@ void PokeTree::deletePokeNode(string name){
     if(z == nil){
         cout<<"Pokemon not found"<<endl;
     }else{
-
         PokeNode *y;
         y = new PokeNode;
         y->leftChild = nil;
@@ -456,16 +456,16 @@ void PokeTree::deletePokeNode(string name){
         y = z;
         origColor = y->isRed;
 
-        if(z->leftChild == nil){
+        if(z->leftChild == nil){//If no left child
             x = z->rightChild;
             rbTransplant(z, z->rightChild);
 
-        }else if(z->rightChild == nil){
+        }else if(z->rightChild == nil){//If no right child
             x = z->leftChild;
             rbTransplant(z, z->leftChild);
 
         }else{
-            y = treeMinimum(z->rightChild);
+            y = treeMinimum(z->rightChild);//Get tree minimum root of z->right tree
             origColor = y->isRed;
             x = y->rightChild;
 
@@ -485,7 +485,7 @@ void PokeTree::deletePokeNode(string name){
             y->isRed = z->isRed;
         }
 
-        delete z;
+        delete z;//Delete original node
 
         if(origColor == false && x != nil){
             rbDeleteFixup(x);
@@ -495,7 +495,7 @@ void PokeTree::deletePokeNode(string name){
 
 }
 
-PokeNode* PokeTree::treeMinimum(PokeNode * x){
+PokeNode* PokeTree::treeMinimum(PokeNode * x){//Traverse down the left side
     while(x->leftChild != nil){
         x = x->leftChild;
     }
@@ -520,37 +520,33 @@ Post condition:
 Fixes the red-black properties of the binary tree.
 */
 
-void PokeTree::rbDeleteFixup(PokeNode * node){
+void PokeTree::rbDeleteFixup(PokeNode * node){//Restore red-black properties
 
     PokeNode * w = NULL;
 
-    // Now we restore the red-black properties.
     while((node != root) && (node->isRed == false)){
-        // If we are a left child
-        if(node == node->parent->leftChild){
-            w = node->parent->rightChild;
+        if(node == node->parent->leftChild){//If node is the left child
+            w = node->parent->rightChild;//Set w to be uncle
 
-            // If helper is red
-            if(w->isRed){
+            if(w->isRed){//If uncle is red
                 w->isRed = false;
                 node->parent->isRed = true;
                 leftRotate(node->parent);
                 w = node->parent->rightChild;
             }
 
-            // If helper's children are both black
-            if(w->leftChild->isRed == false && w->rightChild->isRed == false){
+            if(w->leftChild->isRed == false && w->rightChild->isRed == false){//If both uncle's children are black
                 w->isRed = true;
                 node = node->parent;
-            }else{
+            }else{//If not both uncle's children are black
                 if(w->rightChild->isRed == false){
-                    // case 3
+
                     w->leftChild->isRed = false;
                     w->isRed = true;
                     rightRotate(w);
                     w = node->parent->rightChild;
                 }
-                // case 4
+
                 w->isRed = node->parent->isRed;
                 node->parent->isRed = false;
                 w->rightChild->isRed = false;
@@ -559,10 +555,9 @@ void PokeTree::rbDeleteFixup(PokeNode * node){
             }
         }
 
-        // If we are a right child
-        else{
+        else{//node is right child
 
-            // helper is the left child
+            // uncle is the left child
             w = node->parent->leftChild;
             // If helper is red
             if(w->isRed){
@@ -572,22 +567,17 @@ void PokeTree::rbDeleteFixup(PokeNode * node){
                 w = node->parent->leftChild;
             }
 
-            // If helper's children are both black
-            if(w->leftChild->isRed == false && w->rightChild->isRed == false){
+            if(w->leftChild->isRed == false && w->rightChild->isRed == false){// If uncle's children are both black
                 w->isRed = true;
                 node = node->parent;
-            }
-
-            else{
-                if(w->leftChild->isRed == false){
-                    // case 3
+            }else{
+                if(w->leftChild->isRed == false){//Uncle's life child is red
                     w->rightChild->isRed = false;
                     w->isRed = true;
-                    leftRotate(w);
+                    leftRotate(w);//left rotate around uncle
                     w = node->parent->leftChild;
                 }
 
-                // case 4
                 w->isRed = node->parent->isRed;
                 node->parent->isRed = false;
                 w->leftChild->isRed = false;
@@ -621,16 +611,15 @@ Prints all information regarding that Pokemon, or prints no pokemon found.
 
 void PokeTree::rbTransplant(PokeNode * u, PokeNode * v){
 
-    if(u->parent == nil){
+    if(u->parent == nil){//If u is root
         root = v;
-    }else if(u == u->parent->leftChild){
+    }else if(u == u->parent->leftChild){//u is left child
         u->parent->leftChild = v;
-    }else{
+    }else{//u is right child
         u->parent->rightChild = v;
     }
-    //if(v != nil){
-        v->parent = u->parent;
-    //}
+
+    v->parent = u->parent;
 }
 
 
@@ -659,8 +648,8 @@ Returns an int based on if the tree is a valid-red black tree. The method
 returns a 0 if there is a violation, and returns 1 if the tree is valid.
 */
 
-int PokeTree::rbValid(PokeNode * node)
-{
+int PokeTree::rbValid(PokeNode * node)//Function given in assignment 7
+{//Checks for red-black properties of binary tree
 
     int lh = 0;
     int rh = 0;
@@ -831,14 +820,14 @@ void PokeTree::findAbility(string ability){
     }
 }
 
-void PokeTree::findType(string type, PokeNode *node, vector<PokeNode>* typeList){
+void PokeTree::findType(string type, PokeNode *node, vector<PokeNode>* typeList){//Same structure as printInventory
 
     if(node->leftChild!=nil){
         findType(type, node->leftChild, typeList);
     }
 
     if((node->type1 == type) || (node->type2 == type)){
-        typeList->push_back(*node);
+        typeList->push_back(*node);//Add node to vector
     }
 
     if(node->rightChild!=nil){
@@ -863,7 +852,7 @@ void PokeTree::findAbility(string ability, PokeNode *node, vector<PokeNode>* abi
     }
 }
 
-void PokeTree::DeleteAll(PokeNode * node){
+void PokeTree::DeleteAll(PokeNode * node){//Delete nodes from bottom up, so no problems come up
 
     if(node->leftChild != nil){
         DeleteAll(node->leftChild);
