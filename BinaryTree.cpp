@@ -5,6 +5,9 @@
 
 using namespace std;
 
+vector<PokeNode> typeListing;
+vector<PokeNode> abilityListing;
+
 PokeTree::PokeTree()
 {
     nil = new PokeNode(0,"NIL",0,0,"NIL","NIL","NIL","NIL","NIL","NIL"); //Create a nil node
@@ -864,3 +867,117 @@ void PokeTree::DeleteAll(PokeNode * node){//Delete nodes from bottom up, so no p
     delete node;
 }
 
+bool alreadyexists(PokeNode *node){
+    for (int i = 0; i < typeListing.size(); i++){
+        if ((typeListing[i].type1 == node->type1) || typeListing[i].type1 == node->type2){
+            return true;
+        }
+    }
+    return false;
+}
+
+void PokeTree::printPokeTypes(){
+    printPokeTypes(root);
+}
+
+/*
+Function prototype:
+void PokeTree::printPokeTypes(PokeNode *node);
+
+Function description:
+This method is used to print all types in the Pokemon binary tree.
+The recursive method works by traversing all the way down to the bottom left of the tree
+and printing unique types.
+
+Example:
+printPokeTypes(root);
+
+Precondition:
+Called from inside printPokeType(). Must be passed the root to print the entire inventory.
+
+Post condition:
+All unique types in the binary tree are printed.
+*/
+
+void PokeTree::printPokeTypes(PokeNode * node){//Recursively traverse alphabetically through tree
+    //cout << typeListing.size();
+    if (typeListing.size() == 0){
+            typeListing.push_back(*node);
+            cout << "\t" << typeListing[0].type1 << endl;
+            cout << "\t" << typeListing[0].type2;
+    }
+
+    //cout << typeListing.size() << endl;
+    //cout << node->type1 << endl;
+    //cout << node->type2 << endl;
+
+    if(node->leftChild!=nil){
+        printPokeTypes(node->leftChild);
+    }
+
+    if(alreadyexists(node) == false){
+        cout << "\t" << node->type1 << endl;
+        typeListing.push_back(*node);
+    }
+
+    if(node->rightChild!=nil){
+        printPokeTypes(node->rightChild);
+    }
+}
+
+bool alreadyexists2(PokeNode *node){
+    for (int i = 0; i < abilityListing.size(); i++){
+        if (abilityListing[i].ability == node->ability){
+            return true;
+        }
+    }
+    return false;
+}
+
+void PokeTree::printPokeAbilities(){
+    printPokeAbilities(root);
+}
+
+/*
+Function prototype:
+void PokeTree::printPokeAbilities(PokeNode *node);
+
+Function description:
+This method is used to print all abilities in the Pokemon binary tree.
+The recursive method works by traversing all the way down to the bottom left of the tree
+and printing all unique abilities.
+
+Example:
+printPokeAbilities(root);
+
+Precondition:
+Called from inside printPokeAbility(). Must be passed the root to print the entire inventory.
+
+Post condition:
+All unique abilities in the binary tree are printed.
+*/
+
+void PokeTree::printPokeAbilities(PokeNode * node){//Recursively traverse alphabetically through tree
+    //cout << typeListing.size();
+    if (abilityListing.size() == 0){
+            abilityListing.push_back(*node);
+            cout << "\t" << abilityListing[0].ability;
+    }
+
+    //cout << typeListing.size() << endl;
+    //cout << node->type1 << endl;
+    //cout << node->type2 << endl;
+
+    if(node->leftChild!=nil){
+        printPokeAbilities(node->leftChild);
+    }
+
+    if(alreadyexists2(node) == false){
+        cout << "\t" << node->ability << endl;
+        abilityListing.push_back(*node);
+    }
+
+    if(node->rightChild!=nil){
+        printPokeAbilities(node->rightChild);
+    }
+}
