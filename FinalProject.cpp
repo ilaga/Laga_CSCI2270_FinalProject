@@ -40,7 +40,7 @@ int main(){
         cout<<"The height is listed in centimeters and the weight \nis listed in hectograms (divide by 10 to get kg)."<<endl;
         cout<<"Please type everything using lowercase letters or numbers where applicable.\n\n"<<endl;
 
-        while(command != "8"){
+        while(command != "10"){
             cout<<"======Main Menu====="<<endl;
             cout<<"1. Search for Pokemon"<<endl;
             cout<<"2. Print Pokedex"<<endl;
@@ -49,7 +49,9 @@ int main(){
             cout<<"5. Search for type"<<endl;
             cout<<"6. Search for ability"<<endl;
             cout<<"7. Add Pokemon"<<endl;
-            cout<<"8. Quit"<<endl;
+            cout<<"8. List Pokemon types"<<endl;
+            cout<<"9. List Pokemon abilities"<<endl;
+            cout<<"10. Quit"<<endl;
             getline(cin,command);
             if(command == "1"){
                 string name;
@@ -106,6 +108,14 @@ int main(){
                 }else{
                     cout<<"Information not added"<<endl;
                 }
+            }else if(command == "8"){
+                //this will print out the types of pokemon available //added by Amy Chen (shaochee)
+                cout << "The types of Pokemon in this Pokedex are:" << endl;
+                pokeList.printPokeTypes();
+            }else if(command == "9"){
+                //this will print out the abilities of pokemon available //added by Amy Chen (shaochee)
+                cout << "The abilities of the Pokemon in this Pokedex are:" << endl;
+                pokeList.printPokeAbilities();
             }
         }
         //~pokeList;
