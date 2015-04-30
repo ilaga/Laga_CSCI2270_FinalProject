@@ -55,6 +55,8 @@ class PokeTree
         PokeTree();
         virtual ~PokeTree();
         void printPokeInventory();
+        void printPokeTypes();
+        void printPokeAbilities();
         int countPokeNodes();
         void searchPokeTree(string name);
         void deletePokeNode(std::string title);
@@ -69,6 +71,8 @@ class PokeTree
     private:
         void DeleteAll(PokeNode * node);
         void printPokeInventory(PokeNode * node);
+        void printPokeTypes(PokeNode * node);
+        void printPokeAbilities(PokeNode * node);
         void rbAddFixup(PokeNode * node);
         void leftRotate(PokeNode * x);
         void rbDelete(PokeNode * z);
@@ -85,7 +89,11 @@ class PokeTree
         PokeNode *nil;
         int nodeCount;
 
-
 };
+
+extern vector<PokeNode> typeListing;
+extern bool alreadyexists(PokeNode *node);
+extern vector<PokeNode> abilityListing;
+extern bool alreadyexists2(PokeNode *node);
 
 #endif // BINARYTREE_H
